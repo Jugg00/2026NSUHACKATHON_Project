@@ -1,10 +1,13 @@
-// 1. Define the function with a Capital Letter
+import { Link } from 'react-router-dom'
+
 function Home() {
-  // 2. Return JSX markup
   return (
-    <>
+    <main>
     <h1 className="text-4xl font-bold">Home Page</h1>
-    </>
+    <p className="text-lg">Welcome to the Home Page!</p>
+    <p className="text-lg">Click the button below to get started.</p>
+    <Link to="/search">Get Started</Link>
+    </main>
   )
 }
 

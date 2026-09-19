@@ -9,7 +9,6 @@ function Navbar() {
         className="flex justify-between items-center px-6"
     >
         <div>BESmart App</div>
-
         <ul
             className="flex gap-4"
         >
@@ -23,9 +22,27 @@ function Navbar() {
                 <Link to="/map">Map</Link>
             </li>
             <li>
+                <Link to="/agenda">Agenda</Link>
+            </li>
+            <li>
                 <Link to="/saved">Saved</Link>
             </li>
+            <li>
+                <Link to="/chat">Chat</Link>
+            </li>
         </ul>
+
+        <ul
+            className="flex gap-4"
+        >
+            <li>
+                <Link to="/login">Login</Link>
+            </li>
+            <li>
+                <Link to="/signup">Sign Up</Link>
+            </li>
+        </ul>
+
     </nav> 
   );
 }
