@@ -15,7 +15,7 @@ function Login() {
       return
     }
 
-    // Check for a basic valid email format
+    // Check for a valid email
     if (!email.includes('@')) {
       setError('Please enter a valid email address.')
       return
@@ -27,14 +27,14 @@ function Login() {
       return
     }
 
-    // Clear errors when validation passes
+    // Clear the error when validation passes
     setError('')
     alert('Login information is valid!')
   }
 
   return (
     <main>
-      <h1>Login</h1>
+      <h1 className="text-4xl font-bold">Login Page</h1>
 
       <form onSubmit={handleSubmit}>
         <div>
@@ -61,7 +61,6 @@ function Login() {
           />
         </div>
 
-        {/* Displays validation errors */}
         {error && <p>{error}</p>}
 
         <button type="submit">Login</button>
