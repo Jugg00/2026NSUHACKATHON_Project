@@ -6,6 +6,9 @@ function SearchBar ({ onSearch }) {
 
     //prevents a page reload and saves the text and sends it to the Search page
     function handleSubmit(event) { 
+        //Stop the browser's normal form submission from reloading the page
+        event.preventDefault();
+        
         const formData = new FormData(event.currentTarget);
         const enteredText = formData.get("search");
         setSearchText(enteredText); //stores the search text in the component's state so it can be displayed on the page.
