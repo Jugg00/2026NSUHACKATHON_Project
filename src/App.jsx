@@ -13,17 +13,18 @@ import Signup from './pages/Signup'
 function App() {
   return (
     <>
-    <Navbar />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/map" element={<Map />} />
-      <Route path="/saved" element={<Saved />} />
-      <Route path="/search" element={<Search />} />
-      <Route path="/chat" element={<Chat />} />
-      <Route path="/agenda" element={<Agenda />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} /> 
-    </Routes>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/map" element={<Map />} />
+        <Route path="/saved" element={<Saved />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/agenda" element={<Agenda />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
     </>
   )
 }
