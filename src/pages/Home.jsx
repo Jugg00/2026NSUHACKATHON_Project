@@ -8,7 +8,7 @@ function Home() {
     <p className="text-lg">Click the button below to get started.</p>
     <Link 
       to="/search"
-      className="inline-block px-4 py-2 bg-blue-600 text-white rounded-md"
+      className="inline-block px-4 py-2  bg-[var(--color-nsu-green)] text-white rounded-md"
     >
         Get Started
     </Link>

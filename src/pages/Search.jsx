@@ -34,7 +34,7 @@ function Search() {
   );
 
   return (
-    <>
+    <main className="max-w-5xl mx-auto px-6 py-8">
       <h1 className="text-4xl font-bold">Search Page</h1>
       <SearchBar onSearch={handleSearch} />
       {/* shows feedback in case theres no matches for the search */}
@@ -50,7 +50,7 @@ function Search() {
           description={result.description}
         />
       ))}
-    </>
+    </main>
   )
 }
 

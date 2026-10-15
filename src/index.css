@@ -2,10 +2,19 @@
 
 :root {
   font-family: system-ui, sans-serif;
+  /* main NSU green color */
+  --color-nsu-green: #007A53;
+  /* supporting colors */
+  --color-accent-gold: #F3D03E;
+  --color-page: #f4faf6;
+  --color-surface: #ffffff;
+  --color-text: #173b2d;
 }
 
 body {
   margin: 0;
+  background-color: var(--color-page);
+  color: var(--color-text);
 }
 
 * {
