@@ -1,50 +1,65 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 
 // 1. Define the function with a Capital Letter
 function Navbar() {
-  // 2. Return JSX markup
+    const pages = [
+        { path: '/', label: 'Home' },
+        { path: '/search', label: 'Search' },
+        { path: '/map', label: 'Map' },
+        { path: '/agenda', label: 'Agenda' },
+        { path: '/saved', label: 'Saved' },
+        { path: '/chat', label: 'Chat' },
+    ]
+  const getLinkClass = ({ isActive }) =>
+    isActive ? 'nav-button active' : 'nav-button'
+
   return (
-    <nav 
-        className="flex justify-between items-center px-6"
-    >
-        <div>BESmart App</div>
-        <ul
-            className="flex gap-4"
-        >
-            <li> 
-                <Link to="/">Home</Link>
+    <header>
+      {/* Decorative title bar styled like an old browser window */}
+      <div className="browser-bar">
+        <div className="browser-dots" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+        </div>
+
+        <span>BESMART.EXE / LOCAL DISCOVERY</span>
+      </div>
+
+      <nav className="site-nav" aria-label="Main navigation">
+        {/* Create one navigation link for each page */}
+        <ul className="nav-links">
+          {pages.map((page) => (
+            <li key={page.path}>
+              <NavLink
+                to={page.path}
+                end={page.path === '/'}
+                className={getLinkClass}
+              >
+                {page.label}
+              </NavLink>
             </li>
-            <li>
-                <Link to="/search">Search</Link>
-            </li>
-            <li>
-                <Link to="/map">Map</Link>
-            </li>
-            <li>
-                <Link to="/agenda">Agenda</Link>
-            </li>
-            <li>
-                <Link to="/saved">Saved</Link>
-            </li>
-            <li>
-                <Link to="/chat">Chat</Link>
-            </li>
+          ))}
         </ul>
 
-        <ul
-            className="flex gap-4"
-        >
-            <li>
-                <Link to="/login">Login</Link>
-            </li>
-            <li>
-                <Link to="/signup">Sign Up</Link>
-            </li>
-        </ul>
+        {/* Account links */}
+        <ul className="nav-links">
+          <li>
+            <NavLink to="/login" className={getLinkClass}>
+              Login
+            </NavLink>
+          </li>
 
-    </nav> 
-  );
+          <li>
+            <NavLink to="/signup" className={getLinkClass}>
+              Sign Up
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  )
 }
-// 3. Export the component so it can be used elsewhere
-export default Navbar;
+
+export default Navbar

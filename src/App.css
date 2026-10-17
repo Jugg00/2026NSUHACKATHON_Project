@@ -1,184 +1,443 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
+/* ===== APP FRAME ===== */
 
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+/* Add space around the entire app */
+#root {
+  padding: 24px 16px 40px;
 }
 
-.hero {
+/* Center the browser-style frame and add layered shadows */
+.site-shell {
+  max-width: 1220px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 3px solid var(--color-text);
+  background: var(--color-page);
+  box-shadow:
+    7px 7px 0 var(--color-nsu-green),
+    13px 13px 0 var(--color-accent-gold);
+}
+
+
+/* ===== BROWSER TITLE BARS ===== */
+
+/* Arrange the decorative squares and window title in a row */
+.browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-bottom: 2px solid var(--color-text);
+  background: var(--color-nsu-green);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Keep the decorative squares together */
+.browser-dots {
+  display: flex;
+  flex-shrink: 0;
+  gap: 5px;
+}
+
+/* Style each decorative square */
+.browser-dots span {
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--color-text);
+  background: var(--color-accent-gold);
+}
+
+
+/* ===== NAVIGATION ===== */
+
+/* Allow navigation groups to wrap when space runs out */
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  border-bottom: 3px solid var(--color-nsu-green);
+  background: linear-gradient(#ffffff, #d8f3eb);
+}
+
+/* Remove list formatting and arrange links in rows */
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Shared button appearance for navigation and homepage links */
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 9px 14px;
+  border: 2px solid var(--color-nsu-green);
+  background: linear-gradient(#ffffff, #b5e2ce);
+  box-shadow: 2px 3px 0 var(--color-text);
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Highlight hovered links and the current page */
+.nav-button:hover,
+.nav-button.active {
+  background: linear-gradient(#fffbd8, #f3d03e);
+}
+
+/* Create a pressed appearance while clicking */
+.nav-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+
+/* ===== HOMEPAGE BANNER ===== */
+
+/* Layer a translucent overlay over the cloud photograph */
+.home-hero {
   position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
+  overflow: hidden;
+  padding: 40px;
+  border-bottom: 3px solid var(--color-text);
+  background:
+    linear-gradient(
+      90deg,
+      rgb(244 250 246 / 75%),
+      rgb(244 250 246 / 15%)
+    ),
+    url("https://images.pexels.com/photos/2061990/pexels-photo-2061990.jpeg?auto=compress&cs=tinysrgb&w=1920"),
+    var(--color-sky);
+  background-size: cover;
+  background-position: center;
 }
 
-#center {
+/* Place the introduction inside a translucent glass panel */
+.hero-glass {
+  position: relative;
+  z-index: 1;
+  max-width: 740px;
+  padding: 26px;
+  border: 2px solid white;
+  background: linear-gradient(
+    145deg,
+    rgb(255 255 255 / 88%),
+    rgb(221 250 249 / 55%)
+  );
+  box-shadow:
+    inset 0 2px 0 white,
+    5px 6px 0 rgb(0 122 83 / 25%);
+  backdrop-filter: blur(7px);
+}
+
+/* Style the small gold label above the heading */
+.hero-label {
+  display: inline-block;
+  padding: 5px 9px;
+  border: 2px solid var(--color-text);
+  background: var(--color-accent-gold);
+  box-shadow: 3px 3px 0 var(--color-nsu-green);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+/* Scale the heading between 28px and 42px */
+.hero-glass h1 {
+  margin: 18px 0 12px;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.1;
+  text-shadow: 2px 2px 0 white;
+}
+
+/* Add space between the introduction and action button */
+.hero-glass p {
+  margin: 0 0 22px;
+  line-height: 1.6;
+}
+
+/* Draw glossy bubbles behind the glass panel */
+.hero-bubble {
+  position: absolute;
+  border: 2px solid rgb(255 255 255 / 85%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 25%,
+    white,
+    rgb(255 255 255 / 45%) 20%,
+    rgb(85 202 236 / 20%) 70%
+  );
+  box-shadow: inset -5px -7px 10px rgb(74 184 212 / 25%);
+}
+
+/* Position the larger bubble near the top right */
+.bubble-one {
+  width: 85px;
+  height: 85px;
+  right: 8%;
+  top: 25px;
+}
+
+/* Position the smaller bubble near the bottom right */
+.bubble-two {
+  width: 40px;
+  height: 40px;
+  right: 4%;
+  bottom: 35px;
+}
+
+/* Arrange the status labels beneath the banner */
+.home-status {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 20px;
+  background: var(--color-text);
+  color: var(--color-accent-gold);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* ===== FEATURE WINDOW AND CARDS ===== */
+
+/* Draw a subtle grid behind the feature window */
+.home-content {
+  padding: 28px;
+  background-color: var(--color-page);
+  background-image:
+    linear-gradient(rgb(0 122 83 / 7%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(0 122 83 / 7%) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Frame the feature section like a browser window */
+.feature-window {
+  border: 2px solid var(--color-text);
+  background: linear-gradient(#ffffff, #e8f9f4);
+  box-shadow: 5px 5px 0 rgb(0 122 83 / 50%);
+}
+
+/* Add spacing beneath the window title bar */
+.feature-body {
+  padding: 24px;
+}
+
+.feature-body h2 {
+  margin: 0 0 10px;
+  font-size: 28px;
+}
+
+.feature-body > p {
+  margin: 0 0 20px;
+  line-height: 1.6;
+}
+
+/* Arrange cards in two equal columns */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* Stack each card's content vertically */
+.feature-card {
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+  align-items: flex-start;
+  min-width: 0;
+  padding: 20px;
+  border: 2px solid var(--color-nsu-green);
+  background: linear-gradient(#ffffff, #f0fbf6);
+  box-shadow: 3px 3px 0 rgb(0 122 83 / 35%);
 }
 
-#next-steps {
+/* Let an unpaired final card fill the entire row */
+.feature-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.feature-card h3 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.feature-card p {
+  margin: 0 0 20px;
+  line-height: 1.6;
+}
+
+/* Align buttons at the bottom of cards within each row */
+.feature-card .nav-button {
+  margin-top: auto;
+}
+
+
+/* ===== PIXEL ICONS ===== */
+
+/* Place each icon beside its heading */
+.feature-heading {
   display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
 }
 
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
+/* Create the gold tile surrounding each icon */
+.pixel-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--color-text);
+  background: linear-gradient(#fff6b6, var(--color-accent-gold));
+  box-shadow: 3px 3px 0 var(--color-nsu-green);
 }
 
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
+/* Keep the SVG drawing at a consistent size with crisp edges */
+.pixel-icon svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  fill: var(--color-text);
+  shape-rendering: crispEdges;
 }
 
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
+
+/* ===== GLOSSY HOMEPAGE BUTTONS ===== */
+
+/* Give homepage actions a green gradient and bright inner highlight */
+.home-hero .nav-button,
+.feature-card .nav-button {
+  color: white;
+  border-color: var(--color-text);
+  background: linear-gradient(
+    to bottom,
+    #a0ebc6 0%,
+    #21a775 25%,
+    #007a53 53%,
+    #006243 100%
+  );
+  box-shadow:
+    inset 0 2px 0 #d7ffe9,
+    3px 4px 0 var(--color-text);
+  text-shadow: 1px 1px 0 var(--color-text);
 }
 
-.ticks {
-  position: relative;
-  width: 100%;
+/* Brighten homepage actions when hovered */
+.home-hero .nav-button:hover,
+.feature-card .nav-button:hover {
+  filter: brightness(1.12);
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
+/* Keep the inner highlight while the button is pressed */
+.home-hero .nav-button:active,
+.feature-card .nav-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: inset 0 2px 0 #d7ffe9;
+}
+
+
+/* ===== SHARED FOOTER ===== */
+
+/* Display a cropped grass photograph above the footer */
+.grass-strip {
+  height: 58px;
+  border-top: 2px solid var(--color-text);
+
+  /* Layer a subtle green tint over the photograph */
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgb(0 122 83 / 30%)
+    ),
+    url("https://images.pexels.com/photos/4040853/pexels-photo-4040853.jpeg?auto=compress&cs=tinysrgb&w=1280");
+
+  /* Fill the strip and select the visible part of the photo */
+  background-size: cover;
+  background-position: center 65%;
+  background-color: #78bd65;
+}
+
+/* Center the footer text on a green background */
+.site-footer {
+  padding: 16px 20px;
+  background: var(--color-nsu-green);
+  color: white;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+/* ===== PHONE LAYOUT ===== */
+
+/* Apply these adjustments on screens 580px wide or smaller */
+@media (max-width: 580px) {
+  /* Reduce spacing around the app */
+  #root {
+    padding: 10px 10px 26px;
   }
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
+  /* Use smaller frame shadows on phones */
+  .site-shell {
+    box-shadow:
+      4px 4px 0 var(--color-nsu-green),
+      8px 8px 0 var(--color-accent-gold);
   }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
+
+  /* Reduce navigation padding */
+  .site-nav {
+    padding: 14px;
+  }
+
+  /* Arrange navigation buttons in two equal columns */
+  .nav-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  /* Make each button fill its grid cell */
+  .nav-button {
+    width: 100%;
+  }
+
+  /* Reduce spacing inside the banner */
+  .home-hero {
+    padding: 24px 16px;
+  }
+
+  .hero-glass {
+    padding: 18px;
+  }
+
+  /* Reduce spacing around and inside the feature window */
+  .home-content {
+    padding: 18px 14px;
+  }
+
+  .feature-body {
+    padding: 16px;
+  }
+
+  /* Display one feature card per row */
+  .feature-grid {
+    grid-template-columns: 1fr;
   }
 }

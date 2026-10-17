@@ -1,22 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pixelify+Sans:wght@500;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
-  font-family: system-ui, sans-serif;
-  /* main NSU green color */
+  font-family: "DM Sans", sans-serif;
+  /* main NSU colors */
   --color-nsu-green: #007A53;
-  /* supporting colors */
   --color-accent-gold: #F3D03E;
   --color-page: #f4faf6;
   --color-surface: #ffffff;
   --color-text: #173b2d;
-}
-
-body {
-  margin: 0;
-  background-color: var(--color-page);
-  color: var(--color-text);
+  --color-sky: #84D5F1;
 }
 
 * {
   box-sizing: border-box;
+} 
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--color-text);
+  background:
+    radial-gradient(
+      circle at 12% 8%,
+      #c4ecf7,
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 90% 55%,
+      #c9efd8,
+      transparent 34%
+    ),
+    var(--color-page);
 }
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent-gold);
+  outline-offset: 4px;
+}
+
+.pixel-heading {
+  font-family: "Pixelify Sans", sans-serif;
+  font-weight: 700;
+}
+

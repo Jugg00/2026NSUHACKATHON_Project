@@ -12,7 +12,7 @@ import Signup from './pages/Signup'
 
 function App() {
   return (
-    <>
+    <div className="site-shell">
       <Navbar />
 
       <Routes>
@@ -25,7 +25,14 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
-    </>
+      {/* Decorative grass-style strip */}
+      <div className="grass-strip" aria-hidden="true" />
+
+      {/* Footer appears on every page */}
+      <footer className="site-footer">
+        BESMART · A BRIGHTER WAY TO EXPLORE NEARBY
+      </footer>
+    </div>
   )
 }
 
